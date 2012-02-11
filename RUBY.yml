@@ -1,0 +1,32 @@
+---
+name:    finder
+version: 1.2.0
+title:   Finder
+summary: Robust library file locator
+created: 2009-11-24
+
+description:
+  Finder is a general purpose file finder for Ruby. Finder can search
+  RubyGems, Roll libraries and Ruby's standard $LOAD_PATH and system
+  data directory for the active or the most current library files.
+  It is especially useful for implmenting library-based plugin systems.
+
+repositories:
+  upstream: git://github.com/rubyworks/plugin.git
+
+authors:
+  - Trans <transfire@gmail.com>
+
+requirements:
+  - detroit (build)
+
+resources:
+  home: http://rubyworks.github.com/plugin
+  code: http://github.com/rubyworks/plugin
+  mail: http://groups.google.com/rubyworks-mailinglist
+
+organization: rubyworks
+
+copyrights:
+  - 2009 Rubyworks (BSD-2-Clause)
+

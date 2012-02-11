@@ -1,0 +1,4 @@
+Plugin is a general purpose script finder for Ruby.
+Plugin can search RubyGems, Rolls and Ruby's standard
+$LOAD_PATH for the active or the most current library
+files.

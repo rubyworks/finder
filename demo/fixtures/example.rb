@@ -1,0 +1,1 @@
+$proof = "plugin loading worked"

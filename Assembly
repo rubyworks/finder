@@ -1,0 +1,18 @@
+---
+github:
+  gh_pages: web
+
+yard:
+  active: true
+
+dnote:
+  title: Source Notes
+  output: log/notes.html
+
+announce:
+  service: email
+  mailto:
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+
+

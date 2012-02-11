@@ -1,0 +1,26 @@
+= Plugin Demonstrandum
+
+To use the Plugin library first we need to require it.
+
+  require 'plugin'
+
+Now use +Plugin.find+ to seach for a file pattern of our
+choosing within the +plugins+ loadpath.
+
+  files = Plugin.find('example.rb')
+  file  = files.first
+
+The +find+ method returns full path names.
+
+  File.expand_path(file).assert == file
+  file.assert.end_with?('example.rb')
+
+As with any Ruby script we can require it.
+
+  require file
+
+Our example.rb script defines the global variable $proof.
+We can see that it loaded just fine.
+
+  $proof.assert == "plugin loading worked"
+
