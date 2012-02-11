@@ -1,12 +1,13 @@
 # Finder
 
-[Homepage](http://rubyworks.github.com/finder)
-[Report Issue](http://github.com/rubyworks/finder/issues)
-[Development](http://github.com/rubyworks/finder)
-[Mailing List](http://groups.google.com/groups/rubyworks-mailinglist)
+[Homepage](http://rubyworks.github.com/finder) /
+[Report Issue](http://github.com/rubyworks/finder/issues) /
+[Development](http://github.com/rubyworks/finder) /
+[Mailing List](http://groups.google.com/groups/rubyworks-mailinglist) /
 [IRC Channel](irc://chat.us.freenode.net/rubyworks)
 
 [![Build Status](https://secure.travis-ci.org/rubyworks/finder.png)](http://travis-ci.org/rubyworks/finder)
+
 
 ## DESCRIPTION
 
