@@ -1,10 +1,10 @@
 require 'rbconfig'
 
-module Finder
+module Find
 
   # System location finder methods.
   #
-  module Site
+  module Find::Site
     extend self
 
     DATA_PATH = RbConfig::CONFIG['datadir']

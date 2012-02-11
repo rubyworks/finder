@@ -4,7 +4,7 @@ require 'finder/site'
 
 module Finder
 
-  # Find module is the main interface.
+  # Find module is the main interface for Finder library.
   #
   module Find
     extend self
@@ -67,33 +67,16 @@ module Finder
     end
 
     #
+    # List of supported library management systems.
+    #
     def systems
       @systems ||= (
-        Roll
-        Gems
-        Ruby
+        systems = []
+        systems << Roll if defined?(::Library)
+        systems << Gem  if defined?(::Gem)
+        systems << Site
+        system
       )
-    end
-
-    # Search rolls for current or latest libraries.
-    #
-    def find_roll(match, options={})
-      return [] unless defined?(::Roll) #Library
-      #::Library.search_latest(match)
-      ::Library.find_files(match)
-    end
-
-    # Search latest gem versions.
-    #
-    def find_gems(match, options={})
-      return [] unless defined?(::Gem)
-      ::Gem.search(match)
-    end
-
-    # Search standard $LOAD_PATH.
-    #
-    def find_site(match, options={})
-      $LOAD_PATH.search(match)
     end
 
   end

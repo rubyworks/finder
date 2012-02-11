@@ -1,8 +1,8 @@
-module Finder
+module Find
 
   # RubyGems finder methods.
   #
-  module Gems
+  module Find::Gem
     extend self
 
     #

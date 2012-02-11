@@ -1,8 +1,8 @@
-module Finder
+module Find
 
   # Library finder methods.
   #
-  module Roll
+  module Find::Roll
     extend self
 
     #
