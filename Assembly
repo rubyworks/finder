@@ -2,6 +2,9 @@
 github:
   gh_pages: web
 
+gem:
+  active: true
+
 yard:
   active: true
 
