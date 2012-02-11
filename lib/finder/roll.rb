@@ -81,6 +81,21 @@ module Finder
       #  ::Library.find_files(match)
       #end
 
+      def data_path(match, options={})
+        matches = []
+        ::Library.ledger.each do |name, lib|
+          list = []
+          lib  = lib.sort.first if Array===lib
+          find = File.join(lib.location, 'data', match)
+          list = Dir.glob(find)
+          list = list.map{ |d| d.chomp('/') }
+          matches.concat(list)
+          # activate the library if activate flag
+          lib.activate if options[:activate] && !list.empty?
+        end
+        matches
+      end
+
     end
 
   end
