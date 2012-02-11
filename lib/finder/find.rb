@@ -75,7 +75,7 @@ module Finder
         systems << Roll if defined?(::Library)
         systems << Gem  if defined?(::Gem)
         systems << Site
-        system
+        systems
       )
     end
 
