@@ -1,4 +1,4 @@
-module Find
+module Finder
 
   # Library finder methods.
   #

@@ -1,4 +1,4 @@
-module Find
+module Finder
 
   # RubyGems finder methods.
   #

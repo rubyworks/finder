@@ -1,6 +1,6 @@
 require 'rbconfig'
 
-module Find
+module Finder
 
   # System location finder methods.
   #
