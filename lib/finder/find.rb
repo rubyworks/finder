@@ -1,5 +1,5 @@
 require 'finder/roll'
-require 'finder/gems'
+require 'finder/gem'
 require 'finder/site'
 
 module Finder
