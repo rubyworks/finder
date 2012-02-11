@@ -1,6 +1,6 @@
 ---
 source:
-- .ruby.yml
+- ruby.yml
 authors:
 - name: Trans
   email: transfire@gmail.com
