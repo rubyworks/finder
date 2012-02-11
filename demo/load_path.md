@@ -24,7 +24,8 @@ We can use the `aboslute` option to get the full path.
 
 As with any Ruby script we can require it.
 
-    require Find.load_path('example.rb')
+    file = Find.load_path('example.rb').first
+    require file
 
 Our example.rb script defines the global variable $proof.
 We can see that it loaded just fine.
