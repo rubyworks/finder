@@ -58,7 +58,7 @@ module Finder
     # @example
     #   Find.data_path('bar/*')
     #
-    def data_path(glob)
+    def data_path(match, options={})
       found = []
       systems.each do |system|
         found.concat system.data_path(match, options)
