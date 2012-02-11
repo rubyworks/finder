@@ -10,5 +10,5 @@ lib/finder/roll.rb
 lib/finder/site.rb
 lib/finder.rb
 RUBY.yml
-HISTORY.rdoc
-README.rdoc
+HISTORY.md
+README.md
