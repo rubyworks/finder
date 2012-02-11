@@ -11,7 +11,7 @@
 
 ## DESCRIPTION
 
-Finder is a straight-forward file finder for searhing Ruby library paths.
+Finder is a straight-forward file finder for searching Ruby library paths.
 It can handle RubyGems, Rolls and Ruby's standard site locals. It is both
 more flexible and more robust the using Gem.find_files or searching the
 $LOAD_PATH manually.
@@ -40,7 +40,7 @@ option calls for it.
 
 Copyright (c) 2009 Thomas Sawyer
 
-Finder is release under the terms of the LGPL.
+Finder is release under the terms of the **BSD-2-Clause** license.
 
 See COPYING for details.
 
