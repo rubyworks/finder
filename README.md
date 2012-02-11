@@ -6,6 +6,7 @@
 [Mailing List](http://groups.google.com/groups/rubyworks-mailinglist)
 [IRC Channel](irc://chat.us.freenode.net/rubyworks)
 
+[![Build Status](https://secure.travis-ci.org/rubyworks/finder.png)](http://travis-ci.org/rubyworks/finder)
 
 ## DESCRIPTION
 
