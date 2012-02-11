@@ -3,7 +3,7 @@ require 'finder/find'
 module Finder
 
   # Current version.
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   # Clean module that can be included elsewhere, to proved #path, #load_path
   # and #data_path methods without including the Gem, Roll, and Site constants.

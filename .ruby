@@ -39,7 +39,7 @@ load_path:
 revision: 0
 name: finder
 title: Finder
-version: 0.1.0
+version: 0.1.1
 summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,

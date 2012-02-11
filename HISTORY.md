@@ -1,5 +1,15 @@
 # RELEASE HISTORY
 
+## 0.1.1 / 2012-02-11
+
+Fixes a few oversites in last release.
+
+Changes:
+
+* Fix Find.data_path arguments.
+* Add Roll.data_path method.
+
+
 ## 0.1.0 / 2012-02-11
 
 Finder is a new library built from the ashes of the old Plugin gem.
