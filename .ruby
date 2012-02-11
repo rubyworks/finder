@@ -6,7 +6,7 @@ authors:
   email: transfire@gmail.com
 copyrights:
 - holder: Rubyworks
-  year: '2008'
+  year: '2009'
   license: BSD-2-Clause
 replacements: []
 alternatives: []
@@ -14,6 +14,14 @@ requirements:
 - name: detroit
   groups:
   - build
+  development: true
+- name: qed
+  groups:
+  - test
+  development: true
+- name: ae
+  groups:
+  - test
   development: true
 dependencies: []
 conflicts: []
@@ -33,7 +41,7 @@ name: finder
 title: Finder
 version: 1.2.0
 summary: Robust library file locator
-created: '2008-08-17'
+created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,
   Roll libraries and Ruby's standard $LOAD_PATH and system data directory for the
   active or the most current library files. It is especially useful for implmenting

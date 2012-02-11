@@ -19,6 +19,8 @@ authors:
 
 requirements:
   - detroit (build)
+  - qed     (test)
+  - ae      (test)
 
 resources:
   home: http://rubyworks.github.com/plugin
