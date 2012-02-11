@@ -44,7 +44,7 @@ summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,
   Roll libraries and Ruby's standard $LOAD_PATH and system data directory for the
-  active or the most current library files. It is especially useful for implmenting
+  active or the most current library files. It is especially useful for implementing
   library-based plugin systems.
 organization: rubyworks
 date: '2012-02-11'

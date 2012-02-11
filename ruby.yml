@@ -9,7 +9,7 @@ description:
   Finder is a general purpose file finder for Ruby. Finder can search
   RubyGems, Roll libraries and Ruby's standard $LOAD_PATH and system
   data directory for the active or the most current library files.
-  It is especially useful for implmenting library-based plugin systems.
+  It is especially useful for implementing library-based plugin systems.
 
 repositories:
   upstream: git://github.com/rubyworks/plugin.git
