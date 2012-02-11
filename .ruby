@@ -1,6 +1,6 @@
 ---
 source:
-- RUBY.yml
+- .ruby.yml
 authors:
 - name: Trans
   email: transfire@gmail.com
@@ -30,8 +30,8 @@ repositories:
   scm: git
   name: upstream
 resources:
-  home: http://rubyworks.github.com/plugin
-  code: http://github.com/rubyworks/plugin
+  home: http://rubyworks.github.com/finder
+  code: http://github.com/rubyworks/finder
   mail: http://groups.google.com/rubyworks-mailinglist
 extra: {}
 load_path:
@@ -39,7 +39,7 @@ load_path:
 revision: 0
 name: finder
 title: Finder
-version: 1.2.0
+version: 0.1.0
 summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,

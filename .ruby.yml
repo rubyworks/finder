@@ -1,6 +1,6 @@
 ---
 name:    finder
-version: 1.2.0
+version: 0.1.0
 title:   Finder
 summary: Robust library file locator
 created: 2009-11-24
@@ -23,8 +23,8 @@ requirements:
   - ae      (test)
 
 resources:
-  home: http://rubyworks.github.com/plugin
-  code: http://github.com/rubyworks/plugin
+  home: http://rubyworks.github.com/finder
+  code: http://github.com/rubyworks/finder
   mail: http://groups.google.com/rubyworks-mailinglist
 
 organization: rubyworks
