@@ -26,11 +26,11 @@ of a library.
 For example, a common use case is for a pluggable application is to require all
 the finders found in library load paths:
 
-  require 'finder'
+    require 'finder'
 
-  Find.load_path('myapp/*.rb').each do |file|
-    require(file)
-  end
+    Find.load_path('myapp/*.rb').each do |file|
+      require(file)
+    end
 
 Alternately you might load finders only as needed. For instance, if a command-line
 option calls for it.
@@ -38,7 +38,7 @@ option calls for it.
 
 ## COPYRIGHTS
 
-Copyright (c) 2009 Thomas Sawyer
+Copyright (c) 2009 Rubyworks
 
 Finder is release under the terms of the **BSD-2-Clause** license.
 
