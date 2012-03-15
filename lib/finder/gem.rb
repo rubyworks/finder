@@ -21,15 +21,7 @@ module Finder
       # @return [Array<String>] List of absolute paths.
       #
       def path(match, options={})
-        if from = options[:from] || options[:gem]
-          begin
-            specs = ::Gem::Specification.find_by_name(from.to_s)
-          rescue ::Gem::LoadError
-            return []
-          end
-        else
-          specs = ::Gem::Specification.current_specs
-        end
+        specs = specifications(options)
 
         matches = []
         specs.each do |spec|
@@ -65,11 +57,7 @@ module Finder
       # @return [Array<String>] List of paths.
       #
       def load_path(match, options={})
-        if from = options[:from] || options[:gem]
-          specs = ::Gem::Specification.find_by_name(from.to_s)
-        else
-          specs = ::Gem::Specification.current_specs
-        end
+        specs = specifications(options)
 
         matches = []
         specs.each do |spec|
@@ -103,11 +91,7 @@ module Finder
       # @return [Array<String>] List of absolute paths.
       #
       def data_path(match, options={})
-        if from = options[:from] || options[:gem]
-          specs = ::Gem::Specification.find_by_name(from.to_s)
-        else
-          specs = ::Gem::Specification.current_specs
-        end
+        specs = specifications(options)
 
         matches = []
         specs.each do |spec|
@@ -120,6 +104,21 @@ module Finder
           spec.activate if options[:activate] && !list.empty?
         end
         matches
+      end
+
+    private
+
+      def specifications(options)
+        name = options[:from] || options[:gem]
+        if name
+          begin
+            specs = [::Gem::Specification.find_by_name(name.to_s)]
+          rescue ::Gem::LoadError
+            return []
+          end
+        else
+          ::Gem::Specification.current_specs
+        end
       end
 
     end
