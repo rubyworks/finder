@@ -2,7 +2,7 @@
 
 ## 0.2.0 / 2012-03-14
 
-This release add the `:from` option which allows searching
+This release adds the `:from` option which allows searching
 to be limited to a specific library/gem. It also fixes 
 a bug with the Find.path method where one of the arguments
 was mis-named.
