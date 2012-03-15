@@ -15,18 +15,31 @@ module Finder
       # @param [Hash] options
       #   Search options.
       #
+      # @option options [String] :from
+      #   Specific gem to search.
+      #
       # @return [Array<String>] List of absolute paths.
       #
       def path(match, options={})
+        if from = options[:from] || options[:gem]
+          begin
+            specs = ::Gem::Specification.find_by_name(from.to_s)
+          rescue ::Gem::LoadError
+            return []
+          end
+        else
+          specs = ::Gem::Specification.current_specs
+        end
+
         matches = []
-        ::Gem::Specification.current_specs.each do |spec|
+        specs.each do |spec|
           list = []
           glob = File.join(spec.full_gem_path, match)
           list = Dir[glob] #.map{ |f| f.untaint }
           list = list.map{ |d| d.chomp('/') }
           matches.concat(list)
           # activate the library if activate flag
-          lib.activate if options[:activate] && !list.empty?
+          spec.activate if options[:activate] && !list.empty?
         end
         matches
       end
@@ -40,6 +53,9 @@ module Finder
       # @param [Hash] options
       #   Search options.
       #
+      # @option options [String] :from
+      #   Specific gem to search.
+      #
       # @option options [true,false] :absolute
       #   Return absolute paths instead of relative to load path.
       #
@@ -49,8 +65,14 @@ module Finder
       # @return [Array<String>] List of paths.
       #
       def load_path(match, options={})
+        if from = options[:from] || options[:gem]
+          specs = ::Gem::Specification.find_by_name(from.to_s)
+        else
+          specs = ::Gem::Specification.current_specs
+        end
+
         matches = []
-        ::Gem::Specification.current_specs.each do |spec|
+        specs.each do |spec|
           list = []
           spec.require_paths.each do |path|
             glob = File.join(spec.full_gem_path, path, match)
@@ -64,7 +86,7 @@ module Finder
             matches.concat(list)
           end
           # activate the library if activate flag
-          lib.activate if options[:activate] && !list.empty?
+          spec.activate if options[:activate] && !list.empty?
         end
         matches
       end
@@ -81,15 +103,21 @@ module Finder
       # @return [Array<String>] List of absolute paths.
       #
       def data_path(match, options={})
+        if from = options[:from] || options[:gem]
+          specs = ::Gem::Specification.find_by_name(from.to_s)
+        else
+          specs = ::Gem::Specification.current_specs
+        end
+
         matches = []
-        ::Gem::Specification.current_specs.each do |spec|
+        specs.each do |spec|
           list = []
           glob = File.join(spec.full_gem_path, 'data', match)
           list = Dir[glob] #.map{ |f| f.untaint }
           list = list.map{ |d| d.chomp('/') }
           matches.concat(list)
           # activate the library if activate flag
-          lib.activate if options[:activate] && !list.empty?
+          spec.activate if options[:activate] && !list.empty?
         end
         matches
       end

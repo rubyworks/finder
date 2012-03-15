@@ -18,7 +18,7 @@ module Finder
     # @example
     #   Find.path('lib/foo/*')
     #
-    def path(glob, options={})
+    def path(match, options={})
       found = []
       systems.each do |system|
         found.concat system.path(match, options)

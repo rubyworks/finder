@@ -19,14 +19,23 @@ module Finder
       #
       def path(match, options={})
         return [] unless defined?(::Library)
+
+        if from = options[:from]
+          ledger = {from.to_s => ::Library.ledger[from.to_s]}
+        else
+          ledger = ::Library.ledger
+        end
+
         matches = []
-        ::Library.ledger.each do |name, lib|
+
+        ledger.each do |name, lib|
           lib  = lib.sort.first if Array===lib
           find = File.join(lib.location, match)
           list = Dir.glob(find)
           list = list.map{ |d| d.chomp('/') }
           matches.concat(list)
         end
+
         matches
       end
 
@@ -52,8 +61,17 @@ module Finder
       # @return [Array<String>] List of paths.
       #
       def load_path(match, options={})
+        return [] unless defined?(::Library)
+
+        if from = options[:from]
+          ledger = {from.to_s => ::Library.ledger[from.to_s]}
+        else
+          ledger = ::Library.ledger
+        end
+
         matches = []
-        ::Library.ledger.each do |name, lib|
+
+        ledger.each do |name, lib|
           list = []
           lib  = lib.sort.first if Array===lib
           lib.loadpath.each do |path|
@@ -70,6 +88,7 @@ module Finder
           # activate the library if activate flag
           lib.activate if options[:activate] && !list.empty?
         end
+
         matches
       end
 
@@ -82,8 +101,17 @@ module Finder
       #end
 
       def data_path(match, options={})
+        return [] unless defined?(::Library)
+
+        if from = options[:from]
+          ledger = {from.to_s => ::Library.ledger[from.to_s]}
+        else
+          ledger = ::Library.ledger
+        end
+
         matches = []
-        ::Library.ledger.each do |name, lib|
+
+        ledger.each do |name, lib|
           list = []
           lib  = lib.sort.first if Array===lib
           find = File.join(lib.location, 'data', match)
@@ -93,6 +121,7 @@ module Finder
           # activate the library if activate flag
           lib.activate if options[:activate] && !list.empty?
         end
+
         matches
       end
 

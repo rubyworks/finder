@@ -10,6 +10,9 @@ module Finder
 
       DATA_PATH = RbConfig::CONFIG['datadir']
 
+      # TODO: Might this support `:from` option via
+      #       `File.join(options[:from], match)`?
+
       #
       # Search load path for matching patterns.
       #
@@ -22,6 +25,8 @@ module Finder
       # @return [Array<String>] List of paths.
       #    
       def path(match, options={})
+        return [] if options[:from]
+
         found = []
         $LOAD_PATH.uniq.map do |path|
           list = Dir.glob(File.join(File.expand_path(path), match))
@@ -46,6 +51,8 @@ module Finder
       # @return [Array<String>] List of paths.
       #
       def load_path(match, options={})
+        return [] if options[:from]
+
         found = []
         $LOAD_PATH.uniq.map do |path|
           list = Dir.glob(File.join(File.expand_path(path), match))
@@ -63,6 +70,8 @@ module Finder
       # Search data path.
       #
       def data_path(match, options={})
+        return [] if options[:from]
+
         Dir.glob(File.join(DATA_PATH, match)).uniq
       end
 
