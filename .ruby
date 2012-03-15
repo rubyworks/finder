@@ -8,8 +8,6 @@ copyrights:
 - holder: Rubyworks
   year: '2009'
   license: BSD-2-Clause
-replacements: []
-alternatives: []
 requirements:
 - name: detroit
   groups:
@@ -24,6 +22,7 @@ requirements:
   - test
   development: true
 dependencies: []
+alternatives: []
 conflicts: []
 repositories:
 - uri: git://github.com/rubyworks/plugin.git
@@ -39,7 +38,7 @@ load_path:
 revision: 0
 name: finder
 title: Finder
-version: 0.1.1
+version: 0.2.0
 summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,
@@ -47,4 +46,4 @@ description: Finder is a general purpose file finder for Ruby. Finder can search
   active or the most current library files. It is especially useful for implementing
   library-based plugin systems.
 organization: rubyworks
-date: '2012-02-11'
+date: '2012-03-14'

@@ -23,7 +23,7 @@ To find finders, simply provide a glob to the appropriate Finder function,
 and it will return all matches found within current and/or most recent versions
 of a library.
 
-For example, a common use case is for a pluggable application is to require all
+For example, a common use case is for a plugin-in enabled application is to require all
 the finders found in library load paths:
 
     require 'finder'
@@ -42,5 +42,5 @@ Copyright (c) 2009 Rubyworks
 
 Finder is release under the terms of the **BSD-2-Clause** license.
 
-See COPYING for details.
+See LICENSE.txt file for details.
 
