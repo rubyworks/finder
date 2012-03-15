@@ -1,5 +1,16 @@
 # RELEASE HISTORY
 
+## 0.2.1 / 2012-03-15
+
+Fix Gem finder so that is places spec in Array, and catches
+error is gem is not found.
+
+Changes:
+
+* Fix Gem finder :from option to collect Array of spec.
+* Fix Gem finder to catch error when gem is not found.
+
+
 ## 0.2.0 / 2012-03-14
 
 This release adds the `:from` option which allows searching
