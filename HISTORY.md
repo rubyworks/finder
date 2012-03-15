@@ -1,5 +1,18 @@
 # RELEASE HISTORY
 
+## 0.2.0 / 2012-03-14
+
+This release add the `:from` option which allows searching
+to be limited to a specific library/gem. It also fixes 
+a bug with the Find.path method where one of the arguments
+was mis-named.
+
+Changes:
+
+* Add support for `:from` option.
+* Fix typo in `Find.path` arguments.
+
+
 ## 0.1.1 / 2012-02-11
 
 Fixes a few oversites in last release.
