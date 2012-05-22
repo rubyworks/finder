@@ -1,10 +1,10 @@
 module Finder
   module Find
 
-    # Library finder methods.
+    # Finder methods for `Library` system.
     #
     module Roll
-      extend self
+      include Base
 
       #
       # Search for current or latest files within a library.
@@ -26,10 +26,18 @@ module Finder
           ledger = ::Library.ledger
         end
 
-        matches = []
+        criteria = [options[:version]].compact
+        matches  = []
 
         ledger.each do |name, lib|
-          lib  = lib.sort.first if Array===lib
+          if Array === lib
+            lib = lib.select do |l|
+              criteria.all?{ |c| l.version.satisfy?(c) }
+            end
+            lib = lib.sort.first
+          else
+            next unless criteria.all?{ |c| l.version.satisfy?(c) }
+          end
           find = File.join(lib.location, match)
           list = Dir.glob(find)
           list = list.map{ |d| d.chomp('/') }
@@ -62,24 +70,43 @@ module Finder
       #
       def load_path(match, options={})
         return [] unless defined?(::Library)
+        options = valid_load_options(options)
 
         if from = options[:from]
-          ledger = {from.to_s => ::Library.ledger[from.to_s]}
+          libs = ::Library.ledger[from.to_s]
+          if libs
+            case libs
+            when ::Array
+              ledger = libs.empty? ? {} : {from.to_s => libs}
+            else
+              ledger = {from.to_s => libs}
+            end
+          else
+            ledger = {}
+          end
         else
           ledger = ::Library.ledger
         end
 
+        criteria = [options[:version]].compact
         matches = []
 
         ledger.each do |name, lib|
           list = []
-          lib  = lib.sort.first if Array===lib
+          if Array===lib
+            lib = lib.select do |l|
+              criteria.all?{ |c| l.version.satisfy?(c) }
+            end
+            lib = lib.sort.first
+          else
+            next unless criteria.all?{ |c| l.version.satisfy?(c) }
+          end
           lib.loadpath.each do |path|
             find = File.join(lib.location, path, match)
             list = Dir.glob(find)
             list = list.map{ |d| d.chomp('/') }
-            # return relative load path unless absolte flag
-            if not options[:absolute]
+            # return relative load path unless absolute flag
+            if options[:relative]
               # the extra '' in File.join adds a '/' to the end of the path
               list = list.map{ |f| f.sub(File.join(lib.location, path, ''), '') }
             end
@@ -100,6 +127,9 @@ module Finder
       #  ::Library.find_files(match)
       #end
 
+      #
+      # Search project's data paths.
+      #
       def data_path(match, options={})
         return [] unless defined?(::Library)
 
@@ -109,11 +139,19 @@ module Finder
           ledger = ::Library.ledger
         end
 
+        criteria = [options[:version]].compact
         matches = []
 
         ledger.each do |name, lib|
           list = []
-          lib  = lib.sort.first if Array===lib
+          if Array === lib
+            lib = lib.select do |l|
+              criteria.all?{ |c| l.version.satisfy?(c) }
+            end
+            lib = lib.sort.first
+          else
+            next unless criteria.all?{ |c| l.version.satisfy?(c) }
+          end
           find = File.join(lib.location, 'data', match)
           list = Dir.glob(find)
           list = list.map{ |d| d.chomp('/') }

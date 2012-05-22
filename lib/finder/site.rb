@@ -1,13 +1,14 @@
-require 'rbconfig'
-
 module Finder
   module Find
 
     # System location finder methods.
     #
     module Site
-      extend self
+      include Base
 
+      #
+      # System's data path.
+      #
       DATA_PATH = RbConfig::CONFIG['datadir']
 
       # TODO: Might this support `:from` option via
@@ -23,7 +24,7 @@ module Finder
       #   Search options.
       #
       # @return [Array<String>] List of paths.
-      #    
+      #
       def path(match, options={})
         return [] if options[:from]
 
@@ -37,6 +38,7 @@ module Finder
         found
       end
 
+      #
       # Search load path for matching patterns.
       #
       # @param [String] match
@@ -44,7 +46,7 @@ module Finder
       #
       # @param [Hash] options
       #   Search options.
-      #   
+      #
       # @option options [true,false] :absolute
       #   Return absolute paths instead of relative to load path.
       #
@@ -52,6 +54,7 @@ module Finder
       #
       def load_path(match, options={})
         return [] if options[:from]
+        options = valid_load_options(options)
 
         found = []
         $LOAD_PATH.uniq.map do |path|
@@ -67,6 +70,7 @@ module Finder
         found
       end
 
+      #
       # Search data path.
       #
       def data_path(match, options={})

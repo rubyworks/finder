@@ -1,3 +1,5 @@
+require 'rbconfig'
+require 'finder/base'
 require 'finder/roll'
 require 'finder/gem'
 require 'finder/site'
@@ -8,6 +10,9 @@ module Finder
   #
   module Find
     extend self
+
+    # TODO: expand on extensions
+    EXTENSIONS = %w{.rb .rbx .so}
 
     # Find matching paths, searching through Rolled libraries, Gem-installed libraries
     # and site locations in `$LOAD_PATH` and `RbConfig::CONFIG['datadir']`.
@@ -28,12 +33,27 @@ module Finder
 
     # Shortcut for #path.
     #
-    #   Plugin['syckle/*']
+    #   Find['lib/foo/*']
     #
     alias_method :[], :path
 
-    # Searching through Rolls, RubyGems and Site locations for matching
-    # load paths.
+    # Searching through all systems for matching data paths.
+    #
+    # @param [String] match
+    #   File glob to match against.
+    #
+    # @example
+    #   Find.data_path('bar/*')
+    #
+    def data_path(match, options={})
+      found = []
+      systems.each do |system|
+        found.concat system.data_path(match, options)
+      end
+      found.uniq
+    end
+
+    # Searching through all systems for matching load paths.
     #
     # @param [String] match
     #   File glob to match against.
@@ -49,19 +69,34 @@ module Finder
       found.uniq
     end
 
-    # Searching through Rolls, RubyGems and Site locations for matching
-    # data paths.
+    ## Searching through all systems for matching load paths.
+    ##
+    ## @param [String] match
+    ##   File glob to match against.
+    ##
+    ## @example
+    ##   Find.require_path('bar/*')
+    ##
+    #def require_path(match, options={})
+    #  found = []
+    #  systems.each do |system|
+    #    found.concat system.require_path(match, options)
+    #  end
+    #  found.uniq
+    #end
+
+    # Searching through all systems for matching requirable feature files.
     #
     # @param [String] match
     #   File glob to match against.
     #
     # @example
-    #   Find.data_path('bar/*')
+    #   Find.feature('ostruct')
     #
-    def data_path(match, options={})
+    def feature(match, options={})
       found = []
       systems.each do |system|
-        found.concat system.data_path(match, options)
+        found.concat system.feature(match, options)
       end
       found.uniq
     end

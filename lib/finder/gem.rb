@@ -4,7 +4,7 @@ module Finder
     # RubyGems finder methods.
     #
     module Gem
-      extend self
+      include Base
 
       #
       # Search gems.
@@ -57,6 +57,8 @@ module Finder
       # @return [Array<String>] List of paths.
       #
       def load_path(match, options={})
+        options = valid_load_options(options)
+
         specs = specifications(options)
 
         matches = []
@@ -67,7 +69,7 @@ module Finder
             list = Dir[glob] #.map{ |f| f.untaint }
             list = list.map{ |d| d.chomp('/') }
             # return relative paths unless absolute flag
-            if not options[:absolute]
+            if options[:relative] #not options[:absolute]
               # the extra '' in File.join adds a '/' to the end of the path
               list = list.map{ |f| f.sub(File.join(spec.full_gem_path, path, ''), '') }
             end
@@ -108,17 +110,20 @@ module Finder
 
     private
 
+      #
       def specifications(options)
         name = options[:from] || options[:gem]
         if name
+          criteria = [options[:version]].compact
           begin
-            specs = [::Gem::Specification.find_by_name(name.to_s)]
+            specs = [::Gem::Specification.find_by_name(name.to_s, *criteria)]
           rescue ::Gem::LoadError
-            return []
+            specs = []
           end
         else
-          ::Gem::Specification.current_specs
+          specs = ::Gem::Specification.current_specs
         end
+        return specs
       end
 
     end
