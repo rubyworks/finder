@@ -54,14 +54,15 @@ module Finder
       #
       def load_path(match, options={})
         return [] if options[:from]
+
         options = valid_load_options(options)
 
         found = []
-        $LOAD_PATH.uniq.map do |path|
+        $LOAD_PATH.uniq.each do |path|
           list = Dir.glob(File.join(File.expand_path(path), match))
           list = list.map{ |d| d.chomp('/') }
-          # return relative load path unless absolute flag
-          if not options[:absolute]
+          # return absolute path unless relative flag
+          if options[:relative]
             # the extra '' in File.join adds a '/' to the end of the path
             list = list.map{ |f| f.sub(File.join(path, ''), '') }
           end

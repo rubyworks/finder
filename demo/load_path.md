@@ -7,7 +7,7 @@ To use the Finder library first we need to require it.
 Now use +Find.load_path+ to seach for a file pattern of our
 choosing within library load paths.
 
-    files = Find.load_path('example.rb')
+    files = Find.load_path('example.rb', :relative=>true)
     file  = files.first
 
 The +find+ method returns path name relative to the load path.
