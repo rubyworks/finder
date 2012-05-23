@@ -28,7 +28,13 @@ require all the files found in library load paths:
 
     require 'finder'
 
-    Find.feature('myapp/*.rb').each do |file|
+    Find.feature('myapp/*').each do |file|
+      require(file)
+    end
+
+This is basically equivalent to:
+
+    Find.load_path('myapp/*.rb', :relative=>true).each do |file|
       require(file)
     end
 
