@@ -1,15 +1,18 @@
 #!mast .ruby .yardopts bin demo lib man spec test [A-Z]*.*
 .ruby
 .yardopts
+demo/00_intro.md
+demo/01_load_path.md
+demo/02_feature.md
 demo/applique/ae.rb
 demo/applique/helper.rb
 demo/fixtures/example.rb
-demo/load_path.md
+lib/finder/base.rb
 lib/finder/find.rb
 lib/finder/gem.rb
 lib/finder/roll.rb
 lib/finder/site.rb
 lib/finder.rb
+LICENSE.txt
 HISTORY.md
 README.md
-COPYING.rdoc
