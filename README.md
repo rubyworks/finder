@@ -19,21 +19,21 @@ $LOAD_PATH manually.
 
 ## INSTRUCTION
 
-To find finders, simply provide a glob to the appropriate Finder function,
-and it will return all matches found within current and/or most recent versions
-of a library.
+To find paths, simply provide a glob to the appropriate Finder function,
+and it will return all matches found within current or most recent
+versions of a library.
 
-For example, a common use case is for a plugin-in enabled application is to require all
-the finders found in library load paths:
+For example, a common use case for plug-in enabled application is to
+require all the files found in library load paths:
 
     require 'finder'
 
-    Find.load_path('myapp/*.rb').each do |file|
+    Find.feature('myapp/*.rb').each do |file|
       require(file)
     end
 
-Alternately you might load finders only as needed. For instance, if a command-line
-option calls for it.
+Alternately you might load files only as needed. For instance, if a
+command-line option calls for it.
 
 
 ## COPYRIGHTS

@@ -11,8 +11,8 @@ for requirable files and returns relative paths by default.
 Changes:
 
 * Find.load_path now returns absolute paths by default.
-* Use option `:relative=>true` to get relative paths.
-* Add new `Find.feature` for finding requirable files.
+* Adds option `:relative=>true` to get relative paths.
+* Adds new `Find.feature` for finding requirable files.
 * New Base module provides shared methods to all systems.
 
 
