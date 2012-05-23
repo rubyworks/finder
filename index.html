@@ -43,6 +43,7 @@
     <div class="menu">
       <a href="http://rubyworks.github.com/finder">Home</a> &middot;
       <a href="http://rubydoc.info/gems/finder">Doc</a> &middot;
+      <a href="http://github.com/rubyworks/finder/issues">Issue</a>
       <a href="http://github.com/rubyworks/finder">Code</a>
     </div>
   </div>
@@ -70,7 +71,7 @@
 
       require 'finder'
 
-      Find.load_path('myapp/plugins/*.rb').each do |file|
+      Find.feature('myapp/plugins/*').each do |file|
         require(file)
       end
     </pre>
