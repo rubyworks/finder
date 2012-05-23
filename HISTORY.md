@@ -1,9 +1,25 @@
 # RELEASE HISTORY
 
+## 0.3.0 / 2012-05-22
+
+This is a significant release in that the behavior of `Find.load_path` has
+changed to return absolute paths by default. To get relative paths set
+the `:relative` options to `true`. However, if you are doing that you
+likely want to use the new `Find.feature` method which specifically searches
+for requirable files and returns relative paths by default.
+
+Changes:
+
+* Find.load_path now returns absolute paths by default.
+* Use option `:relative=>true` to get relative paths.
+* Add new `Find.feature` for finding requirable files.
+* New Base module provides shared methods to all systems.
+
+
 ## 0.2.1 / 2012-03-15
 
 Fix Gem finder so that is places spec in Array, and catches
-error is gem is not found.
+error if gem is not found.
 
 Changes:
 

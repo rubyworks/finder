@@ -29,16 +29,23 @@ repositories:
   scm: git
   name: upstream
 resources:
-  home: http://rubyworks.github.com/finder
-  code: http://github.com/rubyworks/finder
-  mail: http://groups.google.com/rubyworks-mailinglist
+- uri: http://rubyworks.github.com/finder
+  label: Website
+  type: home
+- uri: http://github.com/rubyworks/finder
+  label: Source Code
+  type: code
+- uri: http://groups.google.com/rubyworks-mailinglist
+  label: Mailing List
+  type: mail
+categories: []
 extra: {}
 load_path:
 - lib
 revision: 0
 name: finder
 title: Finder
-version: 0.2.1
+version: 0.3.0
 summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,
@@ -46,4 +53,4 @@ description: Finder is a general purpose file finder for Ruby. Finder can search
   active or the most current library files. It is especially useful for implementing
   library-based plugin systems.
 organization: rubyworks
-date: '2012-03-14'
+date: '2012-05-22'
