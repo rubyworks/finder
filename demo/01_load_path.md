@@ -1,10 +1,6 @@
-# Plugin Demonstrandum
+# Load Path Lookup
 
-To use the Finder library first we need to require it.
-
-    require 'finder'
-
-Now use +Find.load_path+ to seach for a file pattern of our
+Use +Find.load_path+ to search for a file pattern of our
 choosing within library load paths.
 
     files = Find.load_path('example.rb', :relative=>true)
