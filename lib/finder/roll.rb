@@ -99,7 +99,7 @@ module Finder
             end
             lib = lib.sort.first
           else
-            next unless criteria.all?{ |c| l.version.satisfy?(c) }
+            next unless criteria.all?{ |c| lib.version.satisfy?(c) }
           end
           lib.loadpath.each do |path|
             find = File.join(lib.location, path, match)

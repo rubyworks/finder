@@ -30,7 +30,7 @@ module Finder
       # and returns relative paths by default.
       #
       def feature(match, options={})
-        options[:relative] = true unless options.key?(:relative)
+        options[:relative] = true unless options.key?(:relative) or options.key?(:absolute)
         match = append_extensions(match, options)
         load_path(match, options)
       end
