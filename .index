@@ -36,7 +36,7 @@ resources:
 repositories:
 - name: upstream
   scm: git
-  uri: git://github.com/rubyworks/plugin.git
+  uri: git://github.com/rubyworks/finder.git
 categories: []
 paths:
   load:
@@ -47,7 +47,7 @@ copyrights:
   license: BSD-2-Clause
 name: finder
 title: Finder
-version: 0.3.0
+version: 0.4.0
 summary: Robust library file locator
 created: '2009-11-24'
 description: Finder is a general purpose file finder for Ruby. Finder can search RubyGems,
