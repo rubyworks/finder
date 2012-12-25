@@ -1,5 +1,17 @@
 # RELEASE HISTORY
 
+## 0.4.0 / 2012-12-25
+
+New release adds Kernel#import and #import_relative core extensions.
+The methods load code directly into the calling scope, unlike 
+the #require and #load methods which do so at the toplevel.
+
+Changes:
+
+* Add Kernel#import and #import_relative.
+* Add dynamic project metadata lookup.
+
+
 ## 0.3.0 / 2012-05-22
 
 This is a significant release in that the behavior of `Find.load_path` has

@@ -1,6 +1,6 @@
-require 'finder/find'
-require 'finder/import'
 require 'finder/index'
+require 'finder/find'
+#require 'finder/import'
 
 module Finder
 
