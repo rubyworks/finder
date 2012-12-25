@@ -1,6 +1,6 @@
 ---
 name:    finder
-version: 0.3.0
+version: 0.4.0
 title:   Finder
 summary: Robust library file locator
 created: 2009-11-24
@@ -12,7 +12,7 @@ description:
   It is especially useful for implementing library-based plugin systems.
 
 repositories:
-  upstream: git://github.com/rubyworks/plugin.git
+  upstream: git://github.com/rubyworks/finder.git
 
 authors:
   - Trans <transfire@gmail.com>
