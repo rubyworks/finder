@@ -1,9 +1,8 @@
 require 'finder/find'
+require 'finder/import'
+require 'finder/index'
 
 module Finder
-
-  # Current version.
-  VERSION = '0.2.0'
 
   # Clean module that can be included elsewhere, to proved #path, #load_path
   # and #data_path methods without including the Gem, Roll, and Site constants.

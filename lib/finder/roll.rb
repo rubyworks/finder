@@ -36,7 +36,7 @@ module Finder
             end
             lib = lib.sort.first
           else
-            next unless criteria.all?{ |c| l.version.satisfy?(c) }
+            next unless criteria.all?{ |c| lib.version.satisfy?(c) }
           end
           find = File.join(lib.location, match)
           list = Dir.glob(find)
